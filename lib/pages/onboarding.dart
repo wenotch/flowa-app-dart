@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../contants/colors.dart';
+import '../widgets/custom_button.dart';
 
 class OnBoarding extends StatelessWidget {
   const OnBoarding({Key? key}) : super(key: key);
@@ -30,50 +31,29 @@ class OnBoarding extends StatelessWidget {
                     image: AssetImage('images/logo.png'),
                     width: 100,
                   ),
-                  GestureDetector(
-                    onTap: () {
-                      print('hello');
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 30),
-                      child: Column(
-                        children: [
-                          Container(
-                            height: 40,
-                            width: MediaQuery.of(context).size.width,
-                            decoration: BoxDecoration(
-                              color: base,
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            child: Center(
-                              child: Text(
-                                'Sign In',
-                                style: TextStyle(color: white),
-                              ),
-                            ),
-                          ),
-                          SizedBox(
-                            height: 30,
-                          ),
-                          Container(
-                            height: 40,
-                            width: MediaQuery.of(context).size.width,
-                            decoration: BoxDecoration(
-                              color: base,
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            child: Center(
-                              child: Text(
-                                'Sign Up',
-                                style: TextStyle(color: white),
-                              ),
-                            ),
-                          ),
-                          SizedBox(
-                            height: 60,
-                          ),
-                        ],
-                      ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 30),
+                    child: Column(
+                      children: [
+                        CustomButton(
+                          bottonText: 'Sign In',
+                          onPrssed: () {
+                            Navigator.pushNamed(context, '/dashboard');
+                          },
+                        ),
+                        SizedBox(
+                          height: 30,
+                        ),
+                        CustomButton(
+                          bottonText: 'Sign Up',
+                          onPrssed: () {
+                            Navigator.pushNamed(context, '/dashboard');
+                          },
+                        ),
+                        SizedBox(
+                          height: 60,
+                        ),
+                      ],
                     ),
                   ),
                 ],
